@@ -1,3 +1,22 @@
-<div class="container">
+<div class="container col-12">
+  <div class="container p-3 bg-secondary text-white col-11 mt-3">
+    <h1 class="text-center">Movies & Tv Shows</h1>
+  </div>
+  <div class="container bg-dark mb-2 col-11">
+    <ul class="nav justify-content-around row p-2">
+      <li class="nav-item rounded m-1 col-sm-2 col-10">
+        <a class="nav-link text-white text-center text-wrap font-weight-bold text-dark" 
+        routerLink="">Homepage</a>
+      </li>
+      <li class="nav-item rounded m-1 col-sm-2 col-10">
+        <a class="nav-link text-white text-center text-wrap font-weight-bold text-dark" 
+        routerLink="/Movies">Movies</a>
+      </li>
+      <li class="nav-item rounded m-1 col-sm-2 col-10">
+        <a class="nav-link text-white text-center text-wrap font-weight-bold text-dark" 
+        href="#">Tv Shows</a>
+      </li>
+    </ul>
+  </div>
   <router-outlet></router-outlet>
 </div>

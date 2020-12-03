@@ -1,10 +1,13 @@
 <div class="container col-11">
     <ul class="nav justify-content-center row p-2">
         <li *ngFor="let movie of lis" class="col-sm-2 col-12 nav-item rounded text-center">
-            <div class="card m-1 p-2">
-                <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}">
-                <h5 style="cursor: pointer;">{{ movie.title }}</h5>
+            <div class="view overlay card zoom m-1 p-2">
+                <img class="img-fluid" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}">
+                <div class="mask align-items-center rgba-blue-grey-strong overflow-auto">
+                    <p class="white-text">{{ movie.overview }}</p>
+                </div>
             </div>
+            <h5 style="cursor: pointer;">{{ movie.title }}</h5>
         </li>
     </ul>
     
