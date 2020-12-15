@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Router,ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -14,8 +15,12 @@ export class MoviesComponent implements OnInit {
   i: number;
   slides: any = [[]];
 
+  router: Router;
+  sub: Subscription;
+  idgenre: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,_router: Router,private _Activatedroute: ActivatedRoute) {
+    this.router = _router;
   }
 
   ngOnInit(): void {
@@ -25,13 +30,32 @@ export class MoviesComponent implements OnInit {
       this.genres = Response['genres'];
       this.slides = this.chunk(this.genres, 9);
     });
+    this.sub=this._Activatedroute.paramMap.subscribe(params => { 
+        this.idgenre = params.get('genreid');
+        let genreid = this.idgenre;
+        for(let j = 1; j < 50; j++){
+          this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=aaeec0551acb10d5d267f42253e1a033&page=' + j)
+          .subscribe(Response => {
+            this.temp = Response['results'];
+            for(let i = 0; i < this.temp.length; i++){
+              Response['results'][i]['genre_ids'].forEach(element => {
+                  if(genreid == element){
+                    this.movies.push(Response['results'][i]);
+                  }
+              });
+            }
+          });
+        }
+     });
   }
 
   getMovie(genreid: number): void {
     this.movies = [];
+    this.router.navigate(['/Movies/Genre',genreid]);
     for(let j = 1; j < 50; j++){
       this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=aaeec0551acb10d5d267f42253e1a033&page=' + j)
       .subscribe(Response => {
+        console.log(Response['results']);
         this.temp = Response['results'];
         for(let i = 0; i < this.temp.length; i++){
           Response['results'][i]['genre_ids'].forEach(element => {

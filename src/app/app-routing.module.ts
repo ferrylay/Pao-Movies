@@ -7,6 +7,7 @@ import { SearchmoviesComponent } from './searchmovies/searchmovies.component';
 
 const routes: Routes = [
   { path: 'Movies', component: MoviesComponent },
+  { path: 'Movies/Genre/:genreid', component: MoviesComponent},
   { path: 'Search/:searchData', component: SearchmoviesComponent },
   { path: '', component: HomepageComponent },
   { path: 'Movies/:id', component: MoviedetailsComponent},

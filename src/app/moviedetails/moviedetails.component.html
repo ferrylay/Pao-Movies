@@ -1,7 +1,32 @@
 <br>
 <br>
 <div class="bg-white">
-    <div class="container col-12">
-        <img src="https://image.tmdb.org/t/p/w185{{results.poster_path}}">
+    <div class="col-12">
+        <div class="col-12 p-5 row">
+            <div class="col-sm-4 col-md-4 border border-dark">
+                <img class="col-12" src="https://image.tmdb.org/t/p/w500{{images.file_path}}">
+            </div>
+            <div class="col-sm-8 col-md-8 border border-dark">
+                <div class="col-12">
+                    <h2>
+                        {{results.original_title}}
+                    </h2>
+                </div>
+                <div class="col-1 col-md-10 col-sm-1 row">
+                    <h5 class="col-1 col-md-2 col-sm-1" *ngFor="let genre of genres">
+                        <a routerLink="../Genre/{{genre.id}}">{{genre.name}}</a>
+                    </h5>
+                </div>
+                <br>
+                <div class="col-12">
+                    <h6>
+                        {{results.tagline}}
+                    </h6>
+                    <h5>Overview:</h5>
+                    <p>{{results.overview}}</p>
+                    <h6>Status: {{results.status}}</h6>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,14 +1,38 @@
 <div class="bg-white">
+    <br>
     <div class="container col-12">
         <h1 class="text-center">Most Popular</h1>
     </div>
     <br>
     <div class="container col-12">
-        <ul class="nav justify-content-center row p-2 border">
-            <li *ngFor="let movie of lis | slice:0:5; let i = index" class="col-sm-2 col-12 nav-item rounded text-center carousel-cell">
-                <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" style="cursor: pointer;">
-                <h5 style="cursor: pointer;">{{movie.title}}</h5>
-            </li>
-        </ul>
+        <mdb-carousel [animation]="'slide'" class="bg-light">
+            <br>
+            <mdb-carousel-item  *ngFor="let item of slides; let i = index" class="col-12 col-md-12 col-sm-12">
+                <div class="col-12 justify-content-center text-center container row">
+                    <div class="col-12 col-md-2 col-sm-2" style="height: 400px;" *ngFor="let movie of item; let genreIndex = index">
+                        <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" style="cursor: pointer;" routerLink="/Movies/{{movie.id}}">
+                        <h5 routerLink="/Movies/{{movie.id}}" style="cursor: pointer;">{{movie.title}}</h5>
+                    </div>
+                </div>
+            </mdb-carousel-item>
+        </mdb-carousel>
+    </div>
+    <br>
+    <div class="container col-12">
+        <h1 class="text-center">Top Rated</h1>
+    </div>
+    <br>
+    <div class="container col-12">
+        <mdb-carousel [animation]="'slide'" class="bg-light">
+            <br>
+            <mdb-carousel-item  *ngFor="let item of slides2; let i = index" class="col-12 col-md-12 col-sm-12">
+                <div class="col-12 justify-content-center text-center container row">
+                    <div class="col-12 col-md-2 col-sm-2" style="height: 400px;" *ngFor="let movie of item; let genreIndex = index">
+                        <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" style="cursor: pointer;" routerLink="/Movies/{{movie.id}}">
+                        <h5 routerLink="/Movies/{{movie.id}}" style="cursor: pointer;">{{movie.title}}</h5>
+                    </div>
+                </div>
+            </mdb-carousel-item>
+        </mdb-carousel>
     </div>
 </div>

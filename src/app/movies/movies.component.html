@@ -4,11 +4,10 @@
         <br>
         <mdb-carousel-item  *ngFor="let item of slides; let i = index" class="col-12 col-md-12 col-sm-12">
             <div class="col-12 justify-content-center text-center container row">
-                <div class="col-12 col-md-2 col-sm-2" style="height: 100px;" *ngFor="let genre of item; let genreIndex = index">
+                <div class="col-12 col-md-1 col-sm-2" style="height: 100px;" *ngFor="let genre of item; let genreIndex = index">
                     <button class="btn btn-sm" (click)="getMovie(genre.id)">{{genre.name}}</button>
                 </div>
             </div>
-            
         </mdb-carousel-item>
     </mdb-carousel>
     <div class="container col-12">

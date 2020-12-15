@@ -15,6 +15,8 @@ export class MoviedetailsComponent implements OnInit {
   sub: Subscription;
   results: any;
   images: any;
+  genres: any;
+  cast: any;
 
   constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router, private http: HttpClient) { }
@@ -22,16 +24,16 @@ export class MoviedetailsComponent implements OnInit {
   ngOnInit(): void {
     this.sub=this._Activatedroute.paramMap.subscribe(params => { 
       this.id = params.get('id'); 
-      this.http.get('https://api.themoviedb.org/3/movie/'+ this.id +'?api_key=aaeec0551acb10d5d267f42253e1a033')
+      this.http.get('https://api.themoviedb.org/3/movie/'+ this.id +'?api_key=aaeec0551acb10d5d267f42253e1a033&append_to_response=credits')
       .subscribe(Response => {
-        console.log(Response);
         this.results = Response;
+        this.genres = Response['genres'];
+        this.cast = Response['credits']['cast'];
+        console.log(Response['credits']['cast']);
       });
       this.http.get('https://api.themoviedb.org/3/movie/' + this.id +'/images?api_key=aaeec0551acb10d5d267f42253e1a033')
       .subscribe(Response => {
-        console.log(Response['posters']);
-        console.log(Response);
-        this.images = Response['posters'];
+        this.images = Response['posters'][0];
       });
    });
   }
