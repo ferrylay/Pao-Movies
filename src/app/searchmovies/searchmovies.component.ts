@@ -23,7 +23,13 @@ export class SearchmoviesComponent implements OnInit {
     this.searchData = params.get('searchData'); 
       this.http.get('https://api.themoviedb.org/3/search/movie?api_key=aaeec0551acb10d5d267f42253e1a033&language=en-US&query='+ this.searchData +'&page=1&include_adult=false')
       .subscribe(Response => {
-        this.results = Response['results'];
+        console.log(Response['results']);
+        for(let i = 0; i < Response['results'].length; i++){
+          if(Response['results'][i]['poster_path'] != null){
+            this.results.push(Response['results'][i]);
+          }
+        }
+        console.log(this.results);
       });
    });
   }
