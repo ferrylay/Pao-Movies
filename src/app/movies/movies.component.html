@@ -1,0 +1,40 @@
+<div>
+    <br>
+    <mdb-carousel [animation]="'slide'">
+        <br>
+        <mdb-carousel-item  *ngFor="let item of slides; let i = index" class="col-12 col-md-12 col-sm-12">
+            <div class="col-12 justify-content-center text-center container row">
+                <div class="d-flex flex-wrap" style="height: 100px;" *ngFor="let genre of item; let genreIndex = index">
+                    <button class="btn btn-sm text-light" (click)="getMovie(genre.id)">{{genre.name}}</button>
+                </div>
+            </div>
+        </mdb-carousel-item>
+    </mdb-carousel>
+      <div class="container">
+        <table mdbTable #tableEl="mdbTable" class="z-depth-1">
+          <thead>
+          <tr>
+            <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let movie of movies; let i = index">
+            <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
+                scope="row" class="text-center"><img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" style="cursor: pointer;" ></th>
+                <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
+                    scope="row" class="text-center center row text-light m-auto"><h1><b>{{movie.title}}({{movie.release_date}})</b></h1><br><h3>{{movie.overview}}</h3><br>
+                    <button (click)="goToDetails(movie.id)" class="button">More Details...</button>
+                </th>
+          </tr>
+          </tbody>
+          <tfoot class="grey lighten-3">
+          <tr>
+            <td colspan="4">
+              <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements"></mdb-table-pagination>
+            </td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+</div>

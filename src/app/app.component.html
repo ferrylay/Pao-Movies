@@ -1,0 +1,33 @@
+<div class="container col-12">
+  <div class="container p-3 mt-3 col-12">
+    <div class="col-9 d-inline-block">
+      <img class="col-4 col-md-6 col-sm-7 animated bounce infinite" style="height:10em; width: 13em;" src="../assets/logo.png">
+      <img class="col-4 col-md-6 col-sm-7 animated bounce infinite"  src="../assets/nama.png">
+    </div>
+    <div class="col-3 d-inline-block">
+      <form autocomplete="off" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-inline md-form form-sm">
+        <mdb-icon fas icon="search" aria-hidden="true" class="text-light"></mdb-icon>
+        <input id="search" formControlName="search" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" mdbInput>
+      </form>
+    </div>
+  </div>
+  <div class="container mb-2 col-11 offset-1">
+    <ul class="nav justify-content-start row p-2">
+      <li class="nav-item col-sm-2 col-2">
+        <a class="nav-link text-center text-wrap font-weight-bold text-light" 
+        routerLink=""><i class="fas fa-home"></i> Home</a>
+      </li>
+      <li class="nav-item col-sm-2 col-3">
+        <a class="nav-link text-center text-wrap font-weight-bold text-light" 
+        routerLink="/Movies"><i class="fas fa-film"></i> Movies</a>
+      </li>
+      <li class="nav-item col-sm-2 col-3">
+        <a class="nav-link text-center text-wrap font-weight-bold text-light" 
+        routerLink="/aboutUs"><i class="fas fa-star"></i> About Us</a>
+      </li>
+    </ul>
+  </div>
+  <div class="container col-12">
+    <router-outlet></router-outlet>
+  </div>
+</div>

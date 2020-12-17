@@ -1,0 +1,39 @@
+<br>
+<br>
+<div>
+    <div class="col-12">
+        <div class="col-12 p-5 row">
+            <div class="col-sm-4 col-md-4 border border-0">
+                <img class="img-fluid" src="https://image.tmdb.org/t/p/w500{{images.file_path}}">
+            </div>
+            <div class="col-sm-8 col-md-8 border border-0">
+                <div class="col-12 text-light">
+                    <h1 class="font-weight-bold">
+                        {{results.original_title}}
+                    </h1>
+                </div>
+                <div class="col-1 col-md-10 col-sm-1 row text-light">
+                    <h5 class="col-md-2 col-sm-12 m-3" *ngFor="let genre of genres">
+                        <a routerLink="../Genre/{{genre.id}}">{{genre.name}}</a>
+                    </h5>
+                </div>
+                <br>
+                <div class="col-12 text-light">
+                    <h6>
+                        {{results.tagline}}
+                    </h6>
+                    <h5>Overview:</h5>
+                    <p>{{results.overview}}</p>
+                    <h6>Status: {{results.status}}</h6>
+                    <h5>Casts: </h5>
+                    <div class="container justify-content-center col-12 col-md-12 col-sm-12 row">
+                        <div class="col-md-2 col-sm-12 m-3 text-center" *ngFor="let casts of cast | slice:0:5">
+                            <img class="img-fluid z-depth-2 rounded-circle" src="https://image.tmdb.org/t/p/original{{casts.profile_path}}">
+                            <a>{{casts.name}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

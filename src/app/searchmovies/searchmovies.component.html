@@ -1,0 +1,15 @@
+<br>
+<br>
+<div>
+    <div class="container col-11 offset-1">
+        <h3>Search results for: {{searchData}}</h3>
+    </div>
+    <div class="container col-12">
+        <ul class="nav justify-content-center row p-2 border">
+            <li *ngFor="let movie of results | slice:0:20" class="col-sm-2 col-12 nav-item rounded text-center carousel-cell">
+                <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" style="cursor: pointer;">
+                <h5 style="cursor: pointer;">{{movie.title}}</h5>
+            </li>
+        </ul>
+    </div>
+</div>
