@@ -56,7 +56,9 @@ export class MoviesComponent implements OnInit, AfterViewInit {
             for (let i = 0; i < this.temp.length; i++) {
               Response['results'][i]['genre_ids'].forEach(element => {
                 if (genreid == element) {
-                  this.movies.push(Response['results'][i]);
+                  if(Response['results'][i]['poster_path'] != null){
+                    this.movies.push(Response['results'][i]);
+                  }
                 }
               });
             }
