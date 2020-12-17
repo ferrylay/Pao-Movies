@@ -1,17 +1,17 @@
-<div class="bg-white">
+<div>
     <br>
     <div class="container col-12">
-        <h1 class="text-center">Most Popular</h1>
+        <h1 class="text-center h2" style="color: whitesmoke;">Most Popular</h1>
     </div>
     <br>
     <div class="container col-12">
-        <mdb-carousel [animation]="'slide'" class="bg-light">
+        <mdb-carousel [animation]="'slide'">
             <br>
             <mdb-carousel-item  *ngFor="let item of slides; let i = index" class="col-12 col-md-12 col-sm-12">
                 <div class="col-12 justify-content-center text-center container row">
                     <div class="col-12 col-md-2 col-sm-2" style="height: 400px;" *ngFor="let movie of item; let genreIndex = index">
-                        <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" style="cursor: pointer;" routerLink="/Movies/{{movie.id}}">
-                        <h5 routerLink="/Movies/{{movie.id}}" style="cursor: pointer;">{{movie.title}}</h5>
+                        <img class="img-fluid z-depth-5" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" style="cursor: pointer;" routerLink="/Movies/{{movie.id}}">
+                        <h5 class="h5" routerLink="/Movies/{{movie.id}}" style="cursor: pointer; color: whitesmoke;"><br>{{movie.title}}</h5>
                     </div>
                 </div>
             </mdb-carousel-item>
@@ -19,17 +19,17 @@
     </div>
     <br>
     <div class="container col-12">
-        <h1 class="text-center">Top Rated</h1>
+        <h1 class="text-center h2" style="color: whitesmoke;">Top Rated</h1>
     </div>
     <br>
     <div class="container col-12">
-        <mdb-carousel [animation]="'slide'" class="bg-light">
+        <mdb-carousel [animation]="'slide'">
             <br>
             <mdb-carousel-item  *ngFor="let item of slides2; let i = index" class="col-12 col-md-12 col-sm-12">
                 <div class="col-12 justify-content-center text-center container row">
                     <div class="col-12 col-md-2 col-sm-2" style="height: 400px;" *ngFor="let movie of item; let genreIndex = index">
-                        <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" style="cursor: pointer;" routerLink="/Movies/{{movie.id}}">
-                        <h5 routerLink="/Movies/{{movie.id}}" style="cursor: pointer;">{{movie.title}}</h5>
+                        <img class="img-fluid z-depth-5" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" style="cursor: pointer;" routerLink="/Movies/{{movie.id}}">
+                        <h5 class="h5" routerLink="/Movies/{{movie.id}}" style="cursor: pointer;color: whitesmoke;"><br>{{movie.title}}</h5>
                     </div>
                 </div>
             </mdb-carousel-item>

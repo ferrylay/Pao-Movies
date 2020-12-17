@@ -12,6 +12,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchmoviesComponent } from './searchmovies/searchmovies.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
     HomepageComponent,
     SearchmoviesComponent,
     MoviedetailsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
