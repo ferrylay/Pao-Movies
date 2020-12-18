@@ -56,9 +56,7 @@ export class MoviesComponent implements OnInit, AfterViewInit {
             for (let i = 0; i < this.temp.length; i++) {
               Response['results'][i]['genre_ids'].forEach(element => {
                 if (genreid == element) {
-                  if(Response['results'][i]['poster_path'] != null){
-                    this.movies.push(Response['results'][i]);
-                  }
+                  this.movies.push(Response['results'][i]);
                 }
               });
             }
@@ -86,13 +84,10 @@ export class MoviesComponent implements OnInit, AfterViewInit {
           for (let i = 0; i < this.temp.length; i++) {
             Response['results'][i]['genre_ids'].forEach(element => {
               if (genreid == element) {
-                if(Response['results'][i]['poster_path'] != null){
-                  this.movies.push(Response['results'][i]);
-                }
+                this.movies.push(Response['results'][i]);
               }
             });
           }
-          console.log(Response['results']);
           for (let i = 1; i <= this.movies.length; i++) {
             if (this.elements.length < this.movies.length) {
               this.elements.push({ id: i.toString() });

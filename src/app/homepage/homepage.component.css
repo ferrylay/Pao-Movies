@@ -2,3 +2,9 @@
   border-width: thin;
   border-color: purple;
 }
+
+@media (max-width: 767px) {
+  div {
+    font-size: 18px;
+  }
+}

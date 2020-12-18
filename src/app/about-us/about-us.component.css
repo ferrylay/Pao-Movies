@@ -1,0 +1,12 @@
+.heading {
+  padding-top: 3em;
+  color: rgb(214, 210, 155);
+  font-size: 38px;
+  text-shadow: 0 0 10px whitesmoke;
+}
+
+.list {
+  text-shadow: 0 0 8px white;
+  letter-spacing: 0.15em;
+  font-size: 18px;
+}

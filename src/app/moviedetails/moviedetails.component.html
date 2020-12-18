@@ -6,30 +6,35 @@
             <div class="col-sm-4 col-md-4 border border-0">
                 <img class="img-fluid" src="https://image.tmdb.org/t/p/w500{{images.file_path}}">
             </div>
-            <div class="col-sm-8 col-md-8 border border-0">
+            <div class="col-sm-8 col-md-8 border border-0 mt-2">
                 <div class="col-12 text-light">
-                    <h1 class="font-weight-bold">
+                    <h1 class="font-weight-bold h2">
                         {{results.original_title}}
+                        <br>
+                        <a class="rilis">{{dateFormat}} ({{results.original_language}}) • </a><a class="runtime">{{hour}}h {{minutes}}m</a>
                     </h1>
                 </div>
                 <div class="col-1 col-md-10 col-sm-1 row text-light">
-                    <h5 class="col-md-2 col-sm-12 m-3" *ngFor="let genre of genres">
+                    <h5 class="col-md-2 col-sm-12 m-3 genre" *ngFor="let genre of genres">
                         <a routerLink="../Genre/{{genre.id}}">{{genre.name}}</a>
                     </h5>
                 </div>
                 <br>
-                <div class="col-12 text-light">
-                    <h6>
+                <div class="col-12 text-light detail">
+                    <h6 class="h6">
                         {{results.tagline}}
                     </h6>
-                    <h5>Overview:</h5>
-                    <p>{{results.overview}}</p>
-                    <h6>Status: {{results.status}}</h6>
-                    <h5>Casts: </h5>
+                    <h5 class="h5" style="font-family: 'Trebuchet MS', sans-serif;">Overview:</h5>
+                    <p class="overflow-auto" style="height: 100px;">{{results.overview}}</p>
+                    <h5 class="h5" style="font-family: 'Trebuchet MS', sans-serif;">Status: {{results.status}}</h5>
+                    <h5 class="h5" style="font-family: 'Trebuchet MS', sans-serif;">Rate: {{results.vote_average}}/10</h5>
+                </div>
+                <div class="col-12 text-light">
+                    <h5 class="h5" style="font-family: 'Trebuchet MS', sans-serif;">Casts: </h5>
                     <div class="container justify-content-center col-12 col-md-12 col-sm-12 row">
-                        <div class="col-md-2 col-sm-12 m-3 text-center" *ngFor="let casts of cast | slice:0:5">
+                        <div class="col-md-3 col-sm-12 m-auto text-center" *ngFor="let casts of cast | slice:0:5">
                             <img class="img-fluid z-depth-2 rounded-circle" src="https://image.tmdb.org/t/p/original{{casts.profile_path}}">
-                            <a>{{casts.name}}</a>
+                            <a class="cast">{{casts.name}}</a>
                         </div>
                     </div>
                 </div>

@@ -13,18 +13,17 @@ export class AppComponent {
   title = 'Project-UAS';
   searchForm: FormGroup;
   total_pages: number;
-
   router: Router;
 
-  constructor(private http: HttpClient,private formBuilder: FormBuilder,_router: Router,){
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, _router: Router,) {
     this.searchForm = this.formBuilder.group({
       search: ''
     });
     this.router = _router;
-  } 
-
-  onSubmit(searchData){
-    this.router.navigate(['/Search',searchData.search]);
   }
-  
+
+  onSubmit(searchData) {
+    this.router.navigate(['/Search', searchData.search]);
+  }
+
 }

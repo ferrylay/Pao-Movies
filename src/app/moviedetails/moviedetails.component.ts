@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
+
 
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
@@ -11,6 +13,9 @@ import { Subscription } from 'rxjs';
 })
 export class MoviedetailsComponent implements OnInit {
 
+  pipe = new DatePipe('en-US');
+  date: any;
+  dateFormat: any;
   id: string;
   sub: Subscription;
   results: any;
@@ -19,6 +24,9 @@ export class MoviedetailsComponent implements OnInit {
   cast = new Array();
   temp: any;
   slides: any = [[]];
+  hour: any;
+  minutes: any;
+
 
   constructor(private _Activatedroute: ActivatedRoute,
     private _router: Router, private http: HttpClient) { }
@@ -32,25 +40,22 @@ export class MoviedetailsComponent implements OnInit {
           this.genres = Response['genres'];
           this.temp = Response['credits']['cast'];
           for (let i = 0; i < this.temp.length; i++) {
-            if (Response['credits']['cast'][i]['profile_path'] != 'null') {
+            if (Response['credits']['cast'][i]['profile_path'] != null) {
               this.cast.push(Response['credits']['cast'][i]);
             }
           }
-          this.slides = this.chunk(this.cast, 5);
+          console.log(this.cast);
+          this.date = Response['release_date'];
+          this.dateFormat = this.pipe.transform(this.date, 'MM/dd/yyyy');
+
+          this.minutes = Response['runtime'] % 60;
+          this.hour = (Response['runtime'] - this.minutes) / 60;
         });
       this.http.get('https://api.themoviedb.org/3/movie/' + this.id + '/images?api_key=aaeec0551acb10d5d267f42253e1a033')
         .subscribe(Response => {
           this.images = Response['posters'][0];
         });
     });
-  }
-
-  chunk(arr, chunkSize) {
-    let R = [];
-    for (let i = 0, len = arr.length; i < len; i += chunkSize) {
-      R.push(arr.slice(i, i + chunkSize));
-    }
-    return R;
   }
 
 }

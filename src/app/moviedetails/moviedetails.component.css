@@ -1,1 +1,21 @@
+.genre {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+}
 
+.rilis {
+  font-size: 12px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-variant-caps: all-petite-caps;
+}
+
+.h2 {
+  font-size: 48px;
+  font-family: 'Trebucher MS', sans-serif;
+}
+
+.runtime {
+  font-size: 12px;
+  font-family: 'Trebuchet MS', sans-serif;
+}
