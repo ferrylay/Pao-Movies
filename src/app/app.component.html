@@ -1,13 +1,13 @@
 <div class="container col-12">
   <div class="container p-3 mt-3 col-12">
-    <div class="col-9 d-inline-block">
-      <img class="col-4 col-md-6 col-sm-7 animated bounce infinite" style="height:10em; width: 13em;" src="../assets/logo.png">
-      <img class="col-4 col-md-6 col-sm-7 animated bounce infinite"  src="../assets/nama.png">
+    <div class="col-12 col-md-9 d-inline-block">
+      <img class="col-2 col-md-6 col-sm-2 animated bounce infinite img-fluid" style="height:10em; width: 12em;" src="../assets/logo.png">
+      <img class="col-10 col-md-6 col-sm-10 animated bounce infinite img-fluid" style="height:10em; width: 25em;" src="../assets/nama.png">
     </div>
-    <div class="col-3 d-inline-block">
+    <div class="col-12 col-md-3 d-inline-block">
       <form autocomplete="off" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" class="form-inline md-form form-sm">
         <mdb-icon fas icon="search" aria-hidden="true" class="text-light"></mdb-icon>
-        <input id="search" formControlName="search" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" mdbInput>
+        <input id="search" formControlName="search" class="form-control form-control-sm ml-3 w-75 text-light" type="text" placeholder="Search" aria-label="Search" mdbInput>
       </form>
     </div>
   </div>
